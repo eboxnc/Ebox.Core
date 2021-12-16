@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ebox.Core</name>
+    </assembly>
+    <members>
+        <member name="M:Ebox.Core.Controllers.LoginController.Register(Ebox.Core.Model.User)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Controllers.LoginController.Login(Ebox.Core.Model.User)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ebox.Core.Controllers.WeatherForecastController">
+            <summary>
+            测试
+            </summary>
+        </member>
+        <member name="M:Ebox.Core.Controllers.WeatherForecastController.Get">
+            <summary>
+            测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Controllers.WeatherForecastController.GetUsers(System.Int32)">
+            <summary>
+             获取用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Controllers.WeatherForecastController.PostUser(Ebox.Core.Model.User)">
+            <summary>
+            新增用户
+            </summary>
+            <param name="User"></param>
+        </member>
+    </members>
+</doc>

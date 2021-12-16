@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ebox.Core.Model</name>
+    </assembly>
+    <members>
+        <member name="P:Ebox.Core.Model.JwtConfig.RenewSeconds">
+            <summary>
+            续期时间
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Ebox.Core.Model.Result" -->
+        <member name="M:Ebox.Core.Model.Result.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Success(System.String)">
+            <summary>
+            返回成功的对象
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Success">
+            <summary>
+            返回成功的对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Success``1(System.String,``0)">
+            <summary>
+            返回成功的带结果集的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="msg"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Success``1(``0)">
+            <summary>
+            返回成功的带结果集的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Fail``1(System.String,``0)">
+            <summary>
+            返回失败的带结果集的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="msg"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Fail(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            返回失败的对象
+            </summary>
+            <param name="code"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Fail``1(System.Net.HttpStatusCode,System.String,``0)">
+            <summary>
+            返回失败的带结果集的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="code"></param>
+            <param name="msg"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Fail``1(System.String)">
+            <summary>
+            返回失败的带结果集的对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.Fail(System.String)">
+            <summary>
+            返回失败的对象
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.GetAsync``1(``0)">
+            <summary>
+            异步返回结果集
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.GetAsync``1(System.String,``0)">
+            <summary>
+            异步返回结果集
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="msg"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result.GetAsync">
+            <summary>
+            异步返回结果集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ebox.Core.Model.Result.Code">
+            <summary>
+            状态码
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.Result.Msg">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.Result.Error">
+            <summary>
+            错误
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.Result.Url">
+            <summary>
+            错误Url
+            </summary>
+        </member>
+        <member name="M:Ebox.Core.Model.Result`1.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.Result`1.Data">
+            <summary>
+            操作结果业务数据
+            </summary>
+        </member>
+        <member name="M:Ebox.Core.Model.Result`1.Success(System.String,`0)">
+            <summary>
+            返回成功的带消息提示对象
+            </summary>
+            <param name="msg"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result`1.Success(`0)">
+            <summary>
+            返回成功的带消息提示对象
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result`1.Fail(System.String,`0)">
+            <summary>
+            返回失败的带消息提示对象
+            </summary>
+            <param name="msg"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ebox.Core.Model.Result`1.Fail(System.String)">
+            <summary>
+            返回失败的带消息提示对象
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ebox.Core.Model.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.User.UserId">
+            <summary>
+            用户id
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.User.UserName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+    </members>
+</doc>
