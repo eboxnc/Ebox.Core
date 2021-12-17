@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebox.Core", "Ebox.Core\Ebox.Core.csproj", "{C569CDBA-F4D3-4962-9EC0-E24D35B1D011}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebox.Core", "Ebox.Core\Ebox.Core.csproj", "{C569CDBA-F4D3-4962-9EC0-E24D35B1D011}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebox.Core.Model", "Ebox.Core.Model\Ebox.Core.Model.csproj", "{8911F269-CE66-44BB-B3DE-75379A9A3AF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebox.Core.Model", "Ebox.Core.Model\Ebox.Core.Model.csproj", "{8911F269-CE66-44BB-B3DE-75379A9A3AF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebox.Core.Common", "Ebox.Core.Common\Ebox.Core.Common.csproj", "{15DCB4E6-AFCD-4CE7-B2D3-E8236EF33142}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebox.Core.Common", "Ebox.Core.Common\Ebox.Core.Common.csproj", "{15DCB4E6-AFCD-4CE7-B2D3-E8236EF33142}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebox.Core.Interface", "Ebox.Core.Interface\Ebox.Core.Interface.csproj", "{E5FEC8F8-7AE2-485E-AAAA-94014C0BF1F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebox.Core.Interface", "Ebox.Core.Interface\Ebox.Core.Interface.csproj", "{E5FEC8F8-7AE2-485E-AAAA-94014C0BF1F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ebox.Core.Data", "Ebox.Core.Data\Ebox.Core.Data.csproj", "{2ED42E2E-4401-4FC9-A207-BBEE8B78AD93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebox.Core.Extensions", "Ebox.Core.Extensions\Ebox.Core.Extensions.csproj", "{9503F441-C1F6-4392-884E-D1B3648E9D41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{E5FEC8F8-7AE2-485E-AAAA-94014C0BF1F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5FEC8F8-7AE2-485E-AAAA-94014C0BF1F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5FEC8F8-7AE2-485E-AAAA-94014C0BF1F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED42E2E-4401-4FC9-A207-BBEE8B78AD93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED42E2E-4401-4FC9-A207-BBEE8B78AD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED42E2E-4401-4FC9-A207-BBEE8B78AD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED42E2E-4401-4FC9-A207-BBEE8B78AD93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9503F441-C1F6-4392-884E-D1B3648E9D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9503F441-C1F6-4392-884E-D1B3648E9D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9503F441-C1F6-4392-884E-D1B3648E9D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9503F441-C1F6-4392-884E-D1B3648E9D41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

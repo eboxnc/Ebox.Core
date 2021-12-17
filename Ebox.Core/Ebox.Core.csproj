@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ebox.Core.Common\Ebox.Core.Common.csproj" />
+    <ProjectReference Include="..\Ebox.Core.Extensions\Ebox.Core.Extensions.csproj" />
     <ProjectReference Include="..\Ebox.Core.Interface\Ebox.Core.Interface.csproj" />
     <ProjectReference Include="..\Ebox.Core.Model\Ebox.Core.Model.csproj" />
   </ItemGroup>

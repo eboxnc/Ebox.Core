@@ -2,7 +2,10 @@
 using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Ebox.Core.Common.Helpers;
+using Ebox.Core.Data;
+using Ebox.Core.Extensions.ServiceExtensions;
 using Ebox.Core.Identity;
+using Ebox.Core.Interface;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -144,6 +147,7 @@ namespace Ebox.Core
             #endregion
 
             services.AddSingleton<JwtHelper>();
+            services.AddSqlsugarSetup(Configuration);
 
             services.AddAuthentication(options =>
             {
@@ -275,10 +279,18 @@ namespace Ebox.Core
         public void ConfigureContainer(ContainerBuilder builder)
         {
             var assemblysServices = Assembly.Load("Ebox.Core.Interface");
-            builder.RegisterAssemblyTypes(assemblysServices)
+            var assemblysServices1 = Assembly.Load("Ebox.Core.Data");
+            builder.RegisterAssemblyTypes(assemblysServices, assemblysServices1)
                 .InstancePerDependency()//瞬时单例
                .AsImplementedInterfaces()////自动以其实现的所有接口类型暴露（包括IDisposable接口）
                .EnableInterfaceInterceptors(); //引用Autofac.Extras.DynamicProxy;
+
+
+            builder.RegisterGeneric(typeof(BaseRepository<>)).As(typeof(IBaseRepository<>))
+                .InstancePerDependency()
+                .AsImplementedInterfaces()
+                .EnableInterfaceInterceptors();
+
         }
         #endregion
     }

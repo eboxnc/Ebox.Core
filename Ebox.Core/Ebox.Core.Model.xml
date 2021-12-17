@@ -9,6 +9,36 @@
             续期时间
             </summary>
         </member>
+        <member name="T:Ebox.Core.Model.PageModel`1">
+            <summary>
+            通用分页信息类
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.PageModel`1.page">
+            <summary>
+            当前页标
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.PageModel`1.pageCount">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.PageModel`1.dataCount">
+            <summary>
+            数据总数
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.PageModel`1.PageSize">
+            <summary>
+            每页大小
+            </summary>
+        </member>
+        <member name="P:Ebox.Core.Model.PageModel`1.data">
+            <summary>
+            返回数据
+            </summary>
+        </member>
         <!-- Badly formed XML comment ignored for member "T:Ebox.Core.Model.Result" -->
         <member name="M:Ebox.Core.Model.Result.#ctor">
             <summary>

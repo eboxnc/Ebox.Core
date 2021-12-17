@@ -1,10 +1,13 @@
 ﻿
 using Ebox.Core.Common.Helpers;
+using Ebox.Core.Data;
+using Ebox.Core.Data.Entity;
+using Ebox.Core.Interface;
 using Ebox.Core.Interface.IService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Collections;
 using System.Threading.Tasks;
 
 namespace Ebox.Core.Controllers
@@ -15,15 +18,19 @@ namespace Ebox.Core.Controllers
     {
         private ICacheManager _cacheManager;
         private JwtHelper _JwtHelper;
-        public LoginController(ICacheManager cacheManager, JwtHelper jwtHelper)
+
+        IBaseRepository<SysUser> _baseRepository;
+        public LoginController(ICacheManager cacheManager, JwtHelper jwtHelper, IBaseRepository<SysUser> baseRepository)
         {
             _cacheManager = cacheManager;
             _JwtHelper = jwtHelper;
+            _baseRepository = baseRepository;
         }
 
         [HttpGet]
         public async Task<object> GetJwtStr(string name, string pass)
         {
+            var b = _baseRepository;
             // 将用户id和角色名，作为单独的自定义变量封装进 token 字符串中。
             TokenModelJwt tokenModel = new TokenModelJwt { Uid = 1, Role = "Admin" };
             var jwtStr = _JwtHelper.IssueJwt(tokenModel);//登录，获取到一定规则的 Token 令牌
@@ -33,6 +40,12 @@ namespace Ebox.Core.Controllers
                 success = suc,
                 token = jwtStr
             });
+        }
+
+        [HttpGet]
+        public async Task<IList> GetUsers()
+        {
+            return await _baseRepository.Query(s => s.UserID < 10);
         }
 
         /// <summary>
