@@ -81,6 +81,8 @@ namespace Ebox.Core.Data
         Task<bool> Update(TEntity entity, string strWhere);
         Task<bool> Update(object operateAnonymousObjects);
 
+
+        Task<bool> Update(Expression<Func<TEntity, TEntity>> columns, Expression<Func<TEntity, bool>> predicate);
         /// <summary>
         /// 根据model，更新，指定列
         /// </summary>

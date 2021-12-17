@@ -163,6 +163,11 @@ namespace Ebox.Core.Data
             return await _db.Updateable<TEntity>(operateAnonymousObjects).ExecuteCommandAsync() > 0;
         }
 
+        public async Task<bool> Update(Expression<Func<TEntity, TEntity>> columns, Expression<Func<TEntity, bool>> predicate)
+        {
+            return await _db.Updateable<TEntity>().SetColumns(columns).Where(predicate).ExecuteCommandAsync() > 0;
+            //   return await _db.Updateable<TEntity>().SetColumns(creator).Where(predicate).ExecuteCommandAsync();
+        }
         public async Task<bool> Update(
           TEntity entity,
           List<string> lstColumns = null,

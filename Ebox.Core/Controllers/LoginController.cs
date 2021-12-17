@@ -45,7 +45,7 @@ namespace Ebox.Core.Controllers
         [HttpGet]
         public async Task<IList> GetUsers()
         {
-            return await _baseRepository.Query(s => s.UserID < 10);
+            return await _baseRepository.Query(s => s.UserID < 100);
         }
 
         /// <summary>
