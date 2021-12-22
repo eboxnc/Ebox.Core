@@ -4,19 +4,17 @@
         <name>Ebox.Core</name>
     </assembly>
     <members>
-        <member name="M:Ebox.Core.Controllers.LoginController.Register(Ebox.Core.Model.User)">
+        <member name="M:Ebox.Core.Controllers.UserController.Register(Ebox.Core.Model.User)">
             <summary>
             用户注册
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Ebox.Core.Controllers.LoginController.Login(System.String,System.String)">
+        <member name="M:Ebox.Core.Controllers.UserController.Login(Ebox.Core.Model.ViewModel.LoginInfo)">
             <summary>
             用户登录
             </summary>
-            <param name="account"></param>
-            <param name="password"></param>
             <returns></returns>
         </member>
         <member name="T:Ebox.Core.Controllers.WeatherForecastController">

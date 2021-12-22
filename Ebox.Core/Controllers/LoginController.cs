@@ -6,6 +6,7 @@ using Ebox.Core.Extensions.Exception;
 using Ebox.Core.Interface;
 using Ebox.Core.Interface.IService;
 using Ebox.Core.Model;
+using Ebox.Core.Model.ViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,14 +19,14 @@ namespace Ebox.Core.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class LoginController : Controller
+    public class UserController : Controller
     {
         private ICacheManager _cacheManager;
         private JwtHelper _JwtHelper;
-        private ILogger<LoginController> _logger;
+        private ILogger<UserController> _logger;
 
         private IUserService _userService;
-        public LoginController(ICacheManager cacheManager, JwtHelper jwtHelper, IUserService userService, ILogger<LoginController> logger)
+        public UserController(ICacheManager cacheManager, JwtHelper jwtHelper, IUserService userService, ILogger<UserController> logger)
         {
             _cacheManager = cacheManager;
             _JwtHelper = jwtHelper;
@@ -71,15 +72,13 @@ namespace Ebox.Core.Controllers
         /// <summary>
         /// 用户登录
         /// </summary>
-        /// <param name="account"></param>
-        /// <param name="password"></param>
         /// <returns></returns>
-        [HttpPost("Login", Name = nameof(Login))]
-        public async Task<IActionResult> Login(string account, string password)
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginInfo info)
         {
             try
             {
-                var user = await _userService.CheckLogin(account, t => EncryptHelper.Validate(password, t));
+                var user = await _userService.CheckLogin(info.UserName, t => EncryptHelper.Validate(info.Password, t));
                 if (user != null)
                 {
                     //if (_appSettingOption.FirstLoginCheckPwd && string.Compare(password, "123456") == 0)
@@ -90,7 +89,7 @@ namespace Ebox.Core.Controllers
                     TokenModelJwt tokenModel = new TokenModelJwt { Uid = user.UserID, Role = "Admin", Work = "admin" };
                     var jwtStr = _JwtHelper.IssueJwt(tokenModel);
 
-                    return Json(Result.Success("登录成功", jwtStr));
+                    return Json(Result.Success("登录成功", new { token = jwtStr }));
                 }
                 return Json(Result.Fail("登录失败，用户名或密码不匹配，或帐号被停用。"));
             }

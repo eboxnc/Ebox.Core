@@ -238,13 +238,22 @@ namespace Ebox.Core
 
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(builder =>
-                {
-                    builder.WithOrigins(Configuration.GetValue<string>("appSettings:Authority"));
-                    builder.AllowAnyHeader();
-                    builder.AllowAnyMethod();
-                    builder.AllowCredentials();
-                });
+                //options.AddDefaultPolicy(builder =>
+                //{
+                //    builder.WithOrigins(Configuration.GetValue<string>("appSettings:Authority"));
+                //    builder.AllowAnyHeader();
+                //    builder.AllowAnyMethod();
+                //    builder.AllowCredentials();
+                //});
+                options.AddPolicy(Appsettings.app(new string[] { "Startup", "Cors", "PolicyName" }),
+                       policy =>
+                       {
+                           policy
+                           .SetIsOriginAllowed((host) => true)
+                           .AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .AllowCredentials();
+                       });
             });
 
 
