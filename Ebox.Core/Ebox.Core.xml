@@ -11,11 +11,12 @@
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:Ebox.Core.Controllers.LoginController.Login(Ebox.Core.Model.User)">
+        <member name="M:Ebox.Core.Controllers.LoginController.Login(System.String,System.String)">
             <summary>
             用户登录
             </summary>
-            <param name="user"></param>
+            <param name="account"></param>
+            <param name="password"></param>
             <returns></returns>
         </member>
         <member name="T:Ebox.Core.Controllers.WeatherForecastController">

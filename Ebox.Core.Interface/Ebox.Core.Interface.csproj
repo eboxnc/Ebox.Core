@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Ebox.Core.Common\Ebox.Core.Common.csproj" />
     <ProjectReference Include="..\Ebox.Core.Data\Ebox.Core.Data.csproj" />
+    <ProjectReference Include="..\Ebox.Core.Extensions\Ebox.Core.Extensions.csproj" />
   </ItemGroup>
 
 </Project>

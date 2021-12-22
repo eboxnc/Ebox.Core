@@ -286,10 +286,10 @@ namespace Ebox.Core
                .EnableInterfaceInterceptors(); //ÒýÓÃAutofac.Extras.DynamicProxy;
 
 
-            builder.RegisterGeneric(typeof(BaseRepository<>)).As(typeof(IBaseRepository<>))
-                .InstancePerDependency()
-                .AsImplementedInterfaces()
-                .EnableInterfaceInterceptors();
+            //builder.RegisterGeneric(typeof(BaseRepository<>)).As(typeof(IBaseRepository<>))
+            //    .InstancePerDependency()
+            //    .AsImplementedInterfaces()
+            //    .EnableInterfaceInterceptors();
 
         }
         #endregion
