@@ -103,10 +103,9 @@ namespace Ebox.Core.Controllers
                 return Json(Result.Fail("登录失败，发生未知的错误，请查看系统日志。"));
             }
 
-
         }
 
-        [HttpGet]
+        [HttpPost]
         [Authorize]
         public async Task<IActionResult> LoginOut()
         {
@@ -114,8 +113,18 @@ namespace Ebox.Core.Controllers
 
             _JwtHelper.InvalidToken(_JwtHelper.GetNoBearerToken(token));
 
-            return Ok("注销成功");
+            return Json(Result.Success("成功"));
         }
 
+        [Authorize]
+        [HttpGet]
+        public async Task<JsonResult> Info()
+        {
+            var token = Request.Headers["Authorization"];
+
+            var user = _JwtHelper.SerializeJwt(_JwtHelper.GetNoBearerToken(token));
+            var userinfo = await _userService.GetUserInfo(user.Uid);
+            return Json(Result.Success("成功", userinfo));
+        }
     }
 }

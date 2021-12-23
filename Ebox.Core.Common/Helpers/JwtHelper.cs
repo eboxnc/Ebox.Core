@@ -26,10 +26,7 @@ namespace Ebox.Core.Common.Helpers
         /// <param name="tokenModel"></param>
         /// <returns></returns>
         public string IssueJwt(TokenModelJwt tokenModel)
-        {
-            // 自己封装的 appsettign.json 操作类，看下文
-
-
+        {      
             var claims = new List<Claim>
               {
                  /*
@@ -199,7 +196,7 @@ namespace Ebox.Core.Common.Helpers
         /// <summary>
         /// Id
         /// </summary>
-        public long Uid { get; set; }
+        public int Uid { get; set; }
         /// <summary>
         /// 角色
         /// </summary>

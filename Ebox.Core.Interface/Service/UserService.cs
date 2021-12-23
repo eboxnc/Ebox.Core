@@ -2,6 +2,7 @@
 using Ebox.Core.Data.Entity;
 using Ebox.Core.Extensions.Exception;
 using Ebox.Core.Interface.IService;
+using Ebox.Core.Model.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,23 @@ namespace Ebox.Core.Interface.Service
             await Update(s => new SysUser() { IsOnline = onLineState.On, LastLoginTime = DateTime.Now }, s => s.UserID == user.UserID);
 
             return user;
+        }
+
+        public async Task<UserInfo> GetUserInfo(int userId)
+        {
+            var user = await QueryById(userId);
+            if (user == null)
+            {
+                throw new ClientNotificationException("用户不存在");
+            }
+
+            return new UserInfo()
+            {
+                Avatar = "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+                Introduction = "我是管理员",
+                Name = user.Name,
+                Roles = new List<string> { "admin" }
+            };
         }
     }
 }

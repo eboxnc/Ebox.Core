@@ -6,6 +6,7 @@ using Ebox.Core.Data;
 using Ebox.Core.Extensions.ServiceExtensions;
 using Ebox.Core.Identity;
 using Ebox.Core.Interface;
+using Ebox.Core.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -181,7 +183,6 @@ namespace Ebox.Core
                             {
                                 context.Response.Headers.Add("Token-Expired", "true");
                             }
-
                             return Task.CompletedTask;
                         },
                     OnMessageReceived = context =>
@@ -208,7 +209,7 @@ namespace Ebox.Core
                     {
                         //终止默认的返回结果(必须有)
                         context.HandleResponse();
-                        var result = JsonConvert.SerializeObject(new { Code = "401", Message = "验证失败" });
+                        var result = JsonConvert.SerializeObject(Result.Fail(HttpStatusCode.Unauthorized, "验证失败"));
                         context.Response.ContentType = "application/json";
                         //验证失败返回401
                         context.Response.StatusCode = StatusCodes.Status401Unauthorized;
@@ -222,7 +223,7 @@ namespace Ebox.Core
                         context.Response.Headers.Add("n-token", helper.RenewToken(token));
                         if (helper.IsInvalidToken(token))
                         {
-                            var result = JsonConvert.SerializeObject(new { Code = "401", Message = "验证失败" });
+                            var result = JsonConvert.SerializeObject(Result.Fail(HttpStatusCode.Unauthorized, "验证失败"));
                             context.Response.ContentType = "application/json";
                             //验证失败返回401
                             context.Response.StatusCode = StatusCodes.Status401Unauthorized;
