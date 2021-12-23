@@ -40,5 +40,18 @@
             </summary>
             <param name="User"></param>
         </member>
+        <member name="M:Ebox.Core.Filter.GlobalExceptions.WriteLog(System.String,System.Exception)">
+            <summary>
+            自定义返回格式
+            </summary>
+            <param name="throwMsg"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Ebox.Core.Middleware.RequestMiddleware.logger">
+            <summary>
+            日志接口
+            </summary>
+        </member>
     </members>
 </doc>
