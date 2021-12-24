@@ -2,31 +2,24 @@
 using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Ebox.Core.Common.Helpers;
-using Ebox.Core.Data;
+using Ebox.Core.Extensions.Exception;
 using Ebox.Core.Extensions.ServiceExtensions;
 using Ebox.Core.Filter;
-using Ebox.Core.Identity;
-using Ebox.Core.Interface;
 using Ebox.Core.Middleware;
 using Ebox.Core.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Filters;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
@@ -251,7 +244,7 @@ namespace Ebox.Core
                 //忽略循环引用
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 //不使用驼峰样式的key
-               // options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                //options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                 //设置时间格式
                 options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
                 //忽略Model中为null的属性
@@ -260,18 +253,7 @@ namespace Ebox.Core
                 options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
             });
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy(Appsettings.app(new string[] { "Startup", "Cors", "PolicyName" }),
-                       policy =>
-                       {
-                           policy
-                           .SetIsOriginAllowed((host) => true)
-                           .AllowAnyMethod()
-                           .AllowAnyHeader()
-                           .AllowCredentials();
-                       });
-            });
+            services.AddCorsSetup();
 
 
         }
